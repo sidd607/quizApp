@@ -1,7 +1,7 @@
 # QuizApp
 
-## This is a simple app created using the MEAN stack. 
-To install dependencies 
+This is a simple app created using the MEAN stack. 
+### To install dependencies 
 ```
 $ npm install
 ```
@@ -18,9 +18,8 @@ or
 $ npm start
 ```
 
-QuizApp usses passport.js for handling user authentication.
 
-directory structure
+### directory structure
 
 ```
 +-- _config
