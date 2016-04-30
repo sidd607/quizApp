@@ -48,3 +48,17 @@ $ npm start
 +-- server.js 					#Entry point to the application
 +-- bower.json
 ```
+
+### API to add questions.
+#### method: POST
+structure:
+```
+{
+	"question": "The question you want to ask",
+	"option1":  "Option One",
+	"option2": "option two",
+	"option3": "option three", 
+	"option4": "option four",
+	"answer": "Correct Answer- 1/2/3/4"
+}
+```
