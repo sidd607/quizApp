@@ -22,7 +22,7 @@ QuizApp usses passport.js for handling user authentication.
 
 directory structure
 
-.
+```
 +-- _config
 |	+-- db.js information regarding the mongoDB
 +-- _public
@@ -48,3 +48,4 @@ directory structure
 +-- package.json
 +-- server.js Entry point to the application
 +-- bower.json
+```
