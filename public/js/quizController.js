@@ -75,7 +75,7 @@ app.controller('quizController', function($scope, $http,$location, $rootScope, $
         $location.url('/user');
 	};
 
-	$scope.countdown = 3;
+	$scope.countdown = 300;
 	var myTimeout = null;
 
 	$scope.onTimeout = function(){
