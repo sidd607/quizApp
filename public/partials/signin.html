@@ -1,0 +1,88 @@
+       <body class="login-content" data-ng-init="signin()">
+        <div class="lc-block toggled" id="l-login">
+            <div ng-show="alert" id="login-alert" class="alert alert-danger col-sm-12">{{alert}}</div>
+
+            <div class="input-group m-b-20">
+                <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
+                <div class="fg-line">
+                    <input type="text" class="form-control" placeholder="email" ng-model="user.username">
+                </div>
+            </div>
+            
+            <div class="input-group m-b-20">
+                <span class="input-group-addon"><i class="zmdi zmdi-male"></i></span>
+                <div class="fg-line">
+                    <input type="password" class="form-control" placeholder="Password" ng-model="user.password">
+                </div>
+            </div>
+            
+            <div class="clearfix"></div>
+            
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="">
+                    <i class="input-helper"></i>
+                    Keep me signed in
+                </label>
+            </div>
+            <br><br>
+            <center><button class="btn btn-primary" onclick="window.location.href='#/signup'">Create an Account</button></center>
+            
+            <a href="" class="btn btn-login btn-danger btn-float" ng-click="login(user)"><i class="zmdi zmdi-arrow-forward"></i></a>
+            
+        </div>
+    
+        </body>
+
+
+
+
+
+
+
+
+
+<!--
+<div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info" >
+        <div class="panel-heading">
+            <div class="panel-title">Sign In</div>
+        </div>
+        <div style="padding-top:30px" class="panel-body" >
+            <div ng-show="alert" id="login-alert" class="alert alert-danger col-sm-12">{{alert}}</div>
+
+            <form id="loginform" class="form-horizontal" role="form">
+
+                <div style="margin-bottom: 25px" class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input id="login-username" type="text" class="form-control" ng-model="user.username" value="" placeholder="email">
+                </div>
+
+                <div style="margin-bottom: 25px" class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input id="login-password" type="password" class="form-control" ng-model="user.password" placeholder="password">
+                </div>
+
+                <div style="margin-top:10px" class="form-group">
+                      <div class="col-sm-12 controls">
+                        <a id="btn-login"   class="btn btn-success" ng-click="login(user)">Login  </a>
+                        <a id="btn-fblogin"  href="/auth/facebook" class="btn btn-primary">Login with Facebook</a>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12 control">
+                        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                            Don't have an account!
+                            <a ng-href="#/signup">
+                                Sign Up Here
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+-->

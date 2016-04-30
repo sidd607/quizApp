@@ -1,0 +1,173 @@
+<link href="additionals/vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
+<link href="additionals/vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.css" rel="stylesheet">
+<link href="additionals/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
+<link href="additionals/vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet">        
+<link href="additionals/vendors/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    
+<!-- CSS -->
+<link href="additionals/css/app.min.1.css" rel="stylesheet">
+<link href="additionals/css/app.min.2.css" rel="stylesheet">
+
+		<header id="header" class="clearfix" data-current-skin="blue" data-ng-init="quiz()">
+            <ul class="header-inner">
+                <li id="menu-trigger" data-trigger="#sidebar">
+                    <div class="line-wrap">
+                        <div class="line top"></div>
+                        <div class="line center"></div>
+                        <div class="line bottom"></div>
+                    </div>
+                </li>
+
+                <li class="logo hidden-xs">
+                    <a href="index-2.html">Quiz App</a>
+                </li>
+
+                <li class="pull-right">
+                    <ul class="top-menu">
+                        <li id="toggle-width">
+                            <div class="toggle-switch">
+                                <input id="tw-switch" type="checkbox" hidden="hidden">
+                                <label for="tw-switch" class="ts-helper"></label>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </header>
+
+        <section id="main">
+        <aside id="sidebar" class="sidebar c-overflow">
+                <div class="profile-menu">
+                    <a href="#">
+                        <div class="profile-pic">
+                            <img src="additionals/img/profile-pics/1.jpg" alt="">
+                        </div>
+
+                        <div class="profile-info">
+                            {{loggeduser.firstname + "  "+ loggeduser.lastname}}
+
+                            
+                        </div>
+                    </a>
+
+                    
+                </div>
+
+                <ul class="main-menu">
+                    <li><a href="/#/user"><i class="zmdi zmdi-account"></i> Profile</a></li>
+                    <li><a href="index-2.html"><i class="zmdi zmdi-home"></i> Quiz </a></li>
+                    <li ng-click="logout()"><a href=""><i class="zmdi zmdi-time-restore" ></i> Logout</a></li> 
+                    
+                </ul>
+            </aside>
+            <section id="content">
+                <div class="container c-alt">
+
+                    <div class="block-header">
+                        <h2> The Quiz - There are 5 questions and you have only 5 minutes to finish the quiz.</h2>
+                
+                        
+                
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-8">
+                            
+                            <div class="card" ng-repeat="question in questions track by $index">
+                                <div class="card-header">
+                                    <div class="media">
+                                        
+                                        <div class="media-body m-t-5">
+                                            <h2>Q.{{$index}} {{question.question}}<small>Weight: {{quesion.point}}</small></h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="wall-comment-list">
+                                    
+                                    <!-- Comment Listing -->
+                                    <div class="wcl-list">
+                                        <div class="media">
+                                            <div class="media-body">
+                                                <div class="radio m-b-15">
+                                                    <label>
+                                                        <input type="radio" name="{{$index}}" value="1" ng-model="o">
+                                                        <i class="input-helper"></i>
+                                                        {{question.option1}}
+                                                    </label>
+                                                </div>
+                                                <div class="radio m-b-15">
+                                                    <label>
+                                                        <input type="radio" name="{{$index}}" value="2" ng-model="o">
+                                                        <i class="input-helper"></i>
+                                                        {{question.option2}}
+                                                    </label>
+                                                </div>
+                                                <div class="radio m-b-15">
+                                                    <label>
+                                                        <input type="radio" name="{{$index}}" value="3" ng-model="o">
+                                                        <i class="input-helper"></i>
+                                                        {{question.option3}}
+                                                    </label>
+                                                </div>
+                                                <div class="radio m-b-15">
+                                                    <label>
+                                                        <input type="radio" name="{{$index}}" value="4" ng-model="o">
+                                                        <i class="input-helper"></i>
+                                                        {{question.option4}}
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Comment form -->
+                                    <div class="wcl-form">
+                                        <div class="wc-comment">
+                                            <div class="btn btn-success" ng-click="saveAnswer($index , o)">
+                                                Save Answer...
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class = "card">
+                            	<div class="card-body card-padding">
+                            		You have attempted {{final.length}} out of {{questions.length}} questions.
+                            		<center><div class="btn btn-success" ng-click="submitAnswer()">
+                            			Submit
+                            		</div></center>
+                            	</div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 hidden-sm" style="position:fixed; right: 0px">
+                            <div class="card">
+                                <div class="alert alert-info" role="alert">
+                                	{{alert}}
+                                </div> 
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Timer</h2>
+                                </div>
+                                
+                                <div class="card-body card-padding">
+                                    
+                                    <br>
+                                    	{{countdown}} Seconds Remaining
+                                    <br>
+                                </div>
+                            </div>f
+                            
+                            <div class="card">
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </section>
+

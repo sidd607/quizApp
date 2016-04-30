@@ -1,0 +1,175 @@
+<link href="additionals/vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
+<link href="additionals/vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.css" rel="stylesheet">
+<link href="additionals/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
+<link href="additionals/vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet">        
+<link href="additionals/vendors/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    
+<!-- CSS -->
+<link href="additionals/css/app.min.1.css" rel="stylesheet">
+<link href="additionals/css/app.min.2.css" rel="stylesheet">
+
+        <header id="header" class="clearfix" data-current-skin="blue" data-ng-init="userinfo()">
+            <ul class="header-inner">
+                <li id="menu-trigger" data-trigger="#sidebar">
+                    <div class="line-wrap">
+                        <div class="line top"></div>
+                        <div class="line center"></div>
+                        <div class="line bottom"></div>
+                    </div>
+                </li>
+
+                <li class="logo hidden-xs">
+                    <a href="/#/user">Quiz App</a>
+                </li>
+
+                <li class="pull-right">
+                    <ul class="top-menu">
+                        <li id="toggle-width">
+                            <div class="toggle-switch">
+                                <input id="tw-switch" type="checkbox" hidden="hidden">
+                                <label for="tw-switch" class="ts-helper"></label>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </header>
+        <section id="main">
+        <aside id="sidebar" class="sidebar c-overflow">
+                <div class="profile-menu">
+                    <a href="">
+                        <div class="profile-pic">
+                            <img src="additionals/img/profile-pics/1.jpg" alt="">
+                        </div>
+
+                        <div class="profile-info">
+                            {{loggeduser.firstname}}
+
+                            
+                        </div>
+                    </a>
+
+                    
+                </div>
+
+                <ul class="main-menu">
+                    <li><a href="/#/user"><i class="zmdi zmdi-account"></i> Profile</a></li>
+                    <li><a href="/#/quiz"><i class="zmdi zmdi-home"></i> Quiz </a></li>
+                    <li ng-click="logout()"><a href=""><i class="zmdi zmdi-time-restore" ></i> Logout</a></li> 
+                    
+                </ul>
+            </aside>
+
+            
+            <section id="content">
+                <div class="container">
+                
+                    <div class="block-header">
+                        <h2>{{loggeduser.firstname + " " + loggeduser.lastname}}</h2>
+                        
+                        
+                    </div>
+                    
+                    <div class="card" id="profile-main">
+                        <div class="pm-overview c-overflow">
+                            <div class="pmo-pic">
+                                <div class="p-relative">
+                                    <a href="">
+                                        <img class="img-responsive" src="additionals/img/profile-pics/1.png" alt=""> 
+                                    </a>
+                                    
+                                    
+                                    
+                                    
+                                </div>
+                                
+                                
+                                <div class="pmo-stat">
+                                    <h2 class="m-0 c-white">Score</h2>
+                                    {{loggeduser.score}}
+                                </div>
+                            </div>
+                            
+                            <div class="pmo-block pmo-contact hidden-xs">
+                                <h2>Contact</h2>
+                                
+                                <ul>
+                                    <li><i class="zmdi zmdi-phone"></i> Dummy data</li>
+                                    <li><i class="zmdi zmdi-email"></i> {{loggeduser.email}}</li>
+                                    <li><i class="zmdi zmdi-facebook-box"></i> Dummy</li>
+                                    
+                                </ul>
+                            </div>
+                            
+                            
+                        </div>
+                        
+                        <div class="pm-body clearfix">
+                            <ul class="tab-nav tn-justified">
+                                <li class="active waves-effect"><a href="/#/user">Profile</a></li>
+                                <li class="waves-effect"><a href="/#/review">Quiz Review</a></li>
+                                <li class="waves-effect" ng-click="logout()"><a href="">Logout</a></li>
+                            </ul>
+                            
+                            
+                            <div class="pmb-block">
+                                <div class="pmbb-header">
+                                    <h2><i class="zmdi zmdi-equalizer m-r-5"></i> Summary</h2>
+
+                                </div>
+                                <div class="pmbb-body p-l-30">
+                                    <div class="pmbb-view" ng-show="loggeduser.flag>0">
+                                        You Scored {{loggeduser.score}} out of 40.
+                                    </div>
+                                    <div class="pmbb-view" ng-show="loggeduser.flag == 0">
+                                        You have not yet completed your test. <br>
+                                        <a href ="/#/quiz"><div class="btn btn-primary"> Click Here to Continue </div></a>
+                                    </div>
+                                    <div class="pmbb-view" ng-show="loggeduser.flag < 0">
+                                        <a href="/#/quiz"><div class="btn btn-success"> Start Quiz</div></a>
+                                    </div>
+                                    
+                                    
+                                </div>
+                            </div>
+                            
+                            <div class="pmb-block">
+                                <div class="pmbb-header">
+                                    <h2><i class="zmdi zmdi-account m-r-5"></i> Leader Board</h2>
+                                    
+                                    
+                                </div>
+                                <div class="pmbb-body p-l-30">
+                                    <div class="pmbb-view">
+                                        <dl class="dl-horizontal" ng-repeat = "leader in leaderboard">
+                                            <dt>{{leader.firstname + " " + leader.lastname}}</dt>
+                                            <dd>{{leader.score}}</dd>
+                                        </dl>
+                                        
+                                    </div>
+                                    
+                                    
+                                </div>
+                            </div>
+                       
+                        
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+        
+        
+
+        <script src="additionals/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="additionals/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        
+        <script src="additionals/vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="additionals/vendors/bower_components/Waves/dist/waves.min.js"></script>
+        <script src="additionals/vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
+        <script src="additionals/vendors/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js"></script>
+        <script src="additionals/vendors/bower_components/moment/min/moment.min.js"></script>
+        <script src="additionals/vendors/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+        <script src="additionals/js/functions.js"></script>
+        <script src="additionals/js/demo.js"></script>
